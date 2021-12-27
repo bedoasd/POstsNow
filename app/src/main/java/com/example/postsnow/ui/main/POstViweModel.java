@@ -1,6 +1,7 @@
 package com.example.postsnow.ui.main;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.example.postsnow.data.PostInteface;
 import com.example.postsnow.pojo.PostsModel;
@@ -13,7 +14,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class POstViweModel {
+public class POstViweModel extends ViewModel {
     MutableLiveData<List<PostsModel>> mutableLiveData=new MutableLiveData<>();
     MutableLiveData<String> posts = new MutableLiveData<>();
 
