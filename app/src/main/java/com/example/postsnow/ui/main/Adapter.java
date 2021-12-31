@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
-    private Context context;
-    private List<PostsModel>modelList=new ArrayList<>();
+
+    private List<PostsModel> moviesList = new ArrayList<>();
 
 
 
@@ -27,38 +27,36 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view= LayoutInflater.from(context).inflate(R.layout.post_item,parent,false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false));
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.title.setText(modelList.get(position).getTitle());
-        holder.userid.setText(modelList.get(position).getUserId());
-        holder.body.setText(modelList.get(position).getBody());
-
+        holder.titleTV.setText(moviesList.get(position).getTitle());
+        holder.userTV.setText(moviesList.get(position).getUserId()+"");
+        holder.bodyTV.setText(moviesList.get(position).getBody());
 
     }
 
     @Override
     public int getItemCount() {
-        return modelList.size();
+        return moviesList.size();
     }
 
     public void setList(List<PostsModel>modelList){
-        this.modelList=modelList;
+        this.moviesList=modelList;
         notifyDataSetChanged();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView title,userid,body;
-
+        TextView titleTV, userTV, bodyTV;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title=itemView.findViewById(R.id.titleTV);
-            userid=itemView.findViewById(R.id.userIDTV);
-            body=itemView.findViewById(R.id.bodyTV);
+            titleTV = itemView.findViewById(R.id.titleTV);
+            userTV = itemView.findViewById(R.id.userIDTV);
+            bodyTV = itemView.findViewById(R.id.bodyTV);
 
 
         }

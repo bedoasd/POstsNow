@@ -15,8 +15,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class POstViweModel extends ViewModel {
-    MutableLiveData<List<PostsModel>> mutableLiveData=new MutableLiveData<>();
-    MutableLiveData<String> posts = new MutableLiveData<>();
+         MutableLiveData<List<PostsModel>> mutableLiveData=new MutableLiveData<>();
+         MutableLiveData<String> posts = new MutableLiveData<>();
 
 
 

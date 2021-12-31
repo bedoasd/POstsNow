@@ -7,8 +7,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+
 import com.example.postsnow.R;
 import com.example.postsnow.pojo.PostsModel;
+import com.example.postsnow.ui.main.Adapter;
+import com.example.postsnow.ui.main.POstViweModel;
+
 import java.util.List;
 
 
@@ -22,8 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
         postViewModel=new ViewModelProvider(this).get(POstViweModel.class);
         postViewModel.getPosts();
-        Adapter adapter=new Adapter();
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        RecyclerView recyclerView = findViewById(R.id.recycler);
+        final Adapter adapter= new Adapter();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
         postViewModel.mutableLiveData.observe(this, new Observer<List<PostsModel>>() {
@@ -32,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setList(postsModels);
             }
         });
+
 
     }
 }
